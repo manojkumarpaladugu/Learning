@@ -1,5 +1,6 @@
 #include <iostream>
-#include "math.hpp"
+#include "addition.hpp"
+#include "division.hpp"
 #include "log.hpp"
 
 int main()
