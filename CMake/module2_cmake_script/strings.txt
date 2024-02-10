@@ -1,0 +1,61 @@
+cmake_minimum_required(VERSION 3.28.1)
+
+# Syntax
+set(<variable name> <value>)
+
+# String
+set(Name Alice)
+set(Alice Bob)
+set(NameAliceBob Charlie)
+message(Name ${Name} ${${Name}})
+message(Name${Name}${${Name}})
+message("Name ${Name} ${${Name}}")
+message(${Name${Name}${${Name}}})
+
+set(Name "Manoj Kumar Paladugu")    # Name = Manoj Kumar Paladugu
+message(${Name} || "${Name}")
+
+# List
+set(Name Manoj Kumar Paladugu)      # Name = Manoj;Kumar;Paladugu
+message(${Name} || "${Name}")
+
+# Quoted and unquoted arguments
+set(VAR aa bb cc)           # Here VAR is a list of 3 items (aa;bb;cc)
+message(${VAR} || "${VAR}")
+
+set(VAR aa;bb;cc)           # Here VAR is a list of 3 items (aa;bb;cc)
+message(${VAR} || "${VAR}")
+
+set(VAR "aa" "bb" "cc")     # Here VAR is a list of 3 items (aa;bb;cc)
+message(${VAR} || "${VAR}")
+
+set(VAR "aa bb cc")         # Here VAR is a list of single item (aa bb cc)
+message(${VAR} || "${VAR}")
+
+# string methods
+set(VAR "CMake for Cross-Platform C++ Projects")
+message(${VAR})
+
+string(FIND ${VAR} "for" find_var)
+message("find_var: ${find_var}")
+
+string(FIND ${VAR} "For" find_var)
+message("find_var: ${find_var}")
+
+string(REPLACE "Projects" "Project" replaced_var ${VAR})
+message("replaced_var: ${replaced_var}")
+
+string(PREPEND replaced_var "Master")
+message("replaced_var: ${replaced_var}")
+
+string(APPEND replaced_var "Building")
+message("replaced_var: ${replaced_var}")
+
+string(TOLOWER ${replaced_var} lower_case_var)
+message("lower_case_var: ${lower_case_var}")
+
+string(TOUPPER ${replaced_var} upper_case_var)
+message("upper_case_var: ${upper_case_var}")
+
+string(COMPARE EQUAL ${upper_case_var} "MASTERCMAKE FOR CROSS-PLATFORM C++ PROJECTBUILDING" equality_check_var)
+message("equality_check_var: ${equality_check_var}")

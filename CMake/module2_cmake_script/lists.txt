@@ -1,0 +1,39 @@
+# list() command
+# list(<subcommand> <name-of-list>... ... ... <return_variable>)
+
+set(VAR a b c;d "e;f")
+message(${VAR})
+
+list(APPEND VAR 2.718 "Hello There")
+message(${VAR})
+
+list(REMOVE_AT VAR 2 -1)        # Remove item by index at 2 and -1
+message(${VAR})
+
+list(REMOVE_ITEM VAR a 2.718)   # Remove by item
+message(${VAR})
+
+list(INSERT VAR 2 f 1.7)       # Insert 2 items at index 2
+message(${VAR})
+
+list(REMOVE_DUPLICATES VAR)
+message(${VAR})
+
+list(REVERSE VAR)
+message(${VAR})
+
+list(SORT VAR)
+message(${VAR})
+
+list(LENGTH VAR len_var)
+list(GET VAR 0 2 4 sub_list)
+list(SUBLIST VAR 2 3 sub_list2)
+list(JOIN VAR ++ str_list)
+list(FIND VAR d find_var)
+
+message("len_var: ${len_var}")
+message("sub_list: ${sub_list}")
+message("sub_list2: ${sub_list2}")
+message("str_list: ${str_list}")
+message("find_var: ${find_var}")
+
