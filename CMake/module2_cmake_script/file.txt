@@ -1,0 +1,7 @@
+message(STATUS "Writing to test.txt")
+file(WRITE test.txt "Hello World!\n")
+file(APPEND test.txt "Bye\n")
+
+message(STATUS "Reading from test.txt")
+file(READ test.txt out_var)
+message(STATUS "${out_var}")
