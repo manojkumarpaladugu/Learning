@@ -1,0 +1,39 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+# Macros and Functions are mostly similar. They have one difference with the scope.
+# Macros don't introduce a new scope. The statements inside macro executes under parent scope
+# Functions introduct a new scope. The statements inside function executes under it's own scope
+
+# Function -------------------------------------------------------------------------------------
+
+set(Name Charlie)
+
+function(print_detail)
+  message("Inside function: before modification: ${Name}")
+  set(Name Bob)
+  message("Inside function: after modification: ${Name}")
+  set(Name Alice PARENT_SCOPE)
+  message("Inside function: after modification: ${Name}")
+endfunction()
+
+message("Outside function: before function call: ${Name}")
+print_detail()
+message("Outside function: after function call: ${Name}")
+
+# Function -------------------------------------------------------------------------------------
+
+# Macro ----------------------------------------------------------------------------------------
+
+set(Name Charlie)
+
+macro(print_detail)
+  message("Inside macro: before modification: ${Name}")
+  set(Name Bob)
+  message("Inside macro: after modification: ${Name}")
+endmacro()
+
+message("Outside macro: before macro call: ${Name}")
+print_detail()
+message("Outside macro: after macro call: ${Name}")
+
+# Macro ----------------------------------------------------------------------------------------

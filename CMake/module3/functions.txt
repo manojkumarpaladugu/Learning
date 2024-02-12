@@ -1,0 +1,65 @@
+# Case 1 ----------------------------
+
+function(print_name name_var)
+  message("My name is ${name_var}")
+endfunction()
+
+set(Name "Manoj Kumar Paladugu")
+print_name(${Name})
+
+# Case 2 ----------------------------
+
+# Print variable name and it's contents
+function(print_detail var)
+  message("My ${var} is ${${var}}")
+endfunction()
+
+set(Name "Manoj Kumar Paladugu")
+set(Age "28")
+print_detail(Name)
+print_detail(Age)
+
+# Case 3 ----------------------------
+
+# Multiple functions with same name
+function(print_country country_var)
+  message("1. My country is ${country_var}")
+endfunction()
+
+function(print_country country_var)
+  message("2. My country is ${country_var}")
+endfunction()
+
+function(print_country country_var)
+  message("3. My country is ${country_var}")
+endfunction()
+
+print_country("India")  # CMake executes the last defined function
+_print_country("India") # CMake renames the previous function with prefix '_'
+
+# Case 4 ----------------------------
+
+# Optional arguments
+function(print_family family_count)
+  message("ARGC - ${ARGC}")     # Total number of arguments (named + optional)
+  message("ARGV - ${ARGV}")     # List of arguments (named + optional)
+  message("ARGN - ${ARGN}")     # List of optional arguments
+
+  if(DEFINED ARGV0)
+    message("ARGV0 = ${ARGV0}")
+  endif()
+  if(DEFINED ARGV1)
+    message("ARGV1 = ${ARGV1}")
+  endif()
+  if(DEFINED ARGV2)
+    message("ARGV2 = ${ARGV2}")
+  endif()
+  if(DEFINED ARGV3)
+    message("ARGV3 = ${ARGV3}")
+  endif()
+  if(DEFINED ARGV4)
+    message("ARGV4 = ${ARGV4}")
+  endif()
+endfunction()
+
+print_family(4 Manoj Swapna Radha Kishore)

@@ -1,0 +1,32 @@
+set(VAR a)
+
+while(NOT VAR STREQUAL "aaaaaaaaaa")
+  set(VAR ${VAR}a)       # append 'a'
+  message(${VAR})
+endwhile()
+
+foreach(Name Alice Bob Charlie)
+# foreach(Name Alice;Bob;Charlie)   # Lists can be space or semicolon seperated
+  message(${Name})
+endforeach()
+
+foreach(x RANGE 10)     # x takes the value from 0 to 10
+  message(${x})
+endforeach()
+
+foreach(x RANGE 10 20)     # x takes the value from 10 to 20
+  message(${x})
+endforeach()
+
+foreach(x RANGE 10 20 3)     # x takes the value from 10 to 20 with step size of 3
+  message(${x})
+endforeach()
+
+# Iterate over list of lists
+set(VAR1 0;1)
+set(VAR2 2 3)
+set(VAR3 "4 5")
+
+foreach(x IN LISTS VAR1 VAR2 VAR3)
+  message(${x})
+endforeach()

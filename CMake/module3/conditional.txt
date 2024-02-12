@@ -1,0 +1,110 @@
+set(VAR YES)
+
+# if block will be executed because VAR is set to one of the constant that results in true condition
+# VAR is automatically dereferenced by conditional statements
+if(VAR)
+  message("if block executed")
+else()
+  message("else block executed")
+endif()
+
+# ---------------------------------------------------------------------------------------------------------
+
+set(VAR)
+
+# else block will be executed because VAR is empty string and is equivalent to false condition
+if(VAR)
+  message("if block executed")
+else()
+  message("else block executed")
+endif()
+
+# ---------------------------------------------------------------------------------------------------------
+
+set(VAR OFF)
+set(VAR2 VAR)
+
+# Here if block will be executed because the value of VAR2 is non empty string
+if(VAR2)
+  message("if block executed")
+else()
+  message("else block executed")
+endif()
+
+# Now else block will be executed, because we have dereferenced the VAR2 variable, which evaulated to false condition
+if(${VAR2})
+  message("if block executed")
+else()
+  message("else block executed")
+endif()
+
+# BEGINNING OF UNARY TESTS---------------------------------------------------------------------------------
+
+set(Name Alice)
+if(DEFINED Name)
+  message("Name: if block executed")
+else()
+  message("Name: else block executed")
+endif()
+
+if(DEFINED Age)
+  message("Age: if block executed")
+else()
+  message("Age: else block executed")
+endif()
+
+# ---------------------------------------------------------------------------------------------------------
+
+# Check if a command exists
+if(COMMAND target_link_library)
+  message("target_link_library is a command")
+else()
+  message("target_link_library is NOT a command")
+endif()
+
+if(COMMAND target_link_libraries)
+  message("target_link_libraries is a command")
+else()
+  message("target_link_libraries is NOT a command")
+endif()
+
+# ---------------------------------------------------------------------------------------------------------
+
+# Check if a file exists or not
+if(EXISTS conditional.txt)
+  message("conditional.txt exists")
+else()
+  message("conditional.txt not found")
+endif()
+
+# END OF UNARY TESTS---------------------------------------------------------------------------------------
+
+# BEGINNING OF BINARY TESTS--------------------------------------------------------------------------------
+
+set(Name1 Alice)
+set(Name2 Bob)
+
+# Output will be "Alice is less than Bob". Because here the comparision happens lexically,
+# that means any string that comes earlier in the dictionary is considered as smaller
+if(Name1 STRLESS Name2)
+  message("${Name1} is less than ${Name2}")
+elseif(Name1 STRGREATER Name2)
+  message("${Name1} is greater than ${Name2}")
+elseif(Name1 STREQUAL Name2)
+  message("${Name1} is equal to ${Name2}")
+endif()
+
+# END OF BINARY TESTS--------------------------------------------------------------------------------------
+
+# BEGINNING OF BOOLEAN TESTS-------------------------------------------------------------------------------
+
+if(NOT DEFINED VAR3)
+  message("VAR3 is not defined")
+endif()
+
+set(VAR3 "TEST")
+if("${VAR3}" STREQUAL "test" OR "${VAR3}" STREQUAL "TEST")
+  message("Match found")
+endif()
+
+# END OF BOOLEAN TESTS-------------------------------------------------------------------------------------
