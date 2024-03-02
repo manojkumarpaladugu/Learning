@@ -6,6 +6,8 @@ Pull Docker Images
 
 Build Docker Image from Dockerfile
 ---
+`cd <Ubuntu|CentOS>`
+
 `docker build -t <image> .`
 
 Run Docker Image
