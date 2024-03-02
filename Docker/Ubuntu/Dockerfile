@@ -3,13 +3,13 @@ ARG IMAGE_USER="admin"
 
 FROM ${IMAGE_BASE}
 
-RUN apt-get update &&   \
-    apt-get upgrade -y &&  \
-    apt-get install -y  \
-    git                 \
-    vim                 \
-    python3             \
-    cmake               \
+RUN apt-get update &&       \
+    apt-get upgrade -y &&   \
+    apt-get install -y      \
+    git                     \
+    vim                     \
+    python3                 \
+    cmake                   \
     gdb
 
 ARG IMAGE_USER
