@@ -1,14 +1,12 @@
-Pull Docker Images
+Pull Docker Image
 ---
 `docker pull ubuntu:22.04`
 
 `docker pull centos:8`
 
-Build Docker Image from Dockerfile
+Build Docker Image
 ---
-`cd <Ubuntu|CentOS>`
-
-`docker build -t <image> .`
+`docker build -f <dockerfile> -t <image> .`
 
 Run Docker Image
 ---
@@ -16,6 +14,10 @@ Run Docker Image
 
 Other Docker Commands
 ---
-`docker image list`
+<pre>
+List docker images  : docker image list
 
-`docker image rm <image>`
+Remove docker image : docker image rm <image>
+
+Clear build cache   : docker builder prune
+</pre>
