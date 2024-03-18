@@ -6,11 +6,13 @@ Pull Docker Image
 
 Build Docker Image
 ---
-`docker build -f <dockerfile> -t <image> .`
+`docker build -f <dockerfile> -t <image_id> .`
 
 Run Docker Image
 ---
-`docker run --rm -it -v ${PWD}:/home/test/tmp <image> /bin/bash`
+`docker run --rm -it -v ${PWD}:/home/test/tmp <image_id> /bin/bash`
+
+`docker exec -it <container_id> /bin/bash`
 
 Other Docker Commands
 ---
@@ -20,4 +22,5 @@ List docker images  : docker image list
 Remove docker image : docker image rm <image>
 
 Clear build cache   : docker builder prune
+Show containers     : docker ps
 </pre>
