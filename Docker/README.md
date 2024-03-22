@@ -6,7 +6,7 @@ Pull Docker Image
 
 Build Docker Image
 ---
-`docker build --no-cache --force-rm -f <dockerfile> -t <image_id> .`
+`docker build -f <dockerfile> -t <image_id> --no-cache --force-rm .`
 
 Run Docker Image
 ---
