@@ -17,10 +17,9 @@ Connect to the existing container: `docker exec -it <container_id> /bin/bash`
 Other Docker Commands
 ---
 <pre>
-List docker images  : docker image list
-
-Remove docker image : docker image rm <image>
-
-Clear build cache   : docker builder prune
-Show containers     : docker ps
+Create a network bridge : docker network create <bridge_name>
+List docker images      : docker image list
+Remove docker image     : docker image rm <image>
+Clear build cache       : docker builder prune
+Show containers         : docker ps
 </pre>
