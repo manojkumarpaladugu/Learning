@@ -10,9 +10,9 @@ Build Docker Image
 
 Run Docker Image
 ---
-Start a docker image in a container: `docker run --rm -it -v ${PWD}:/home/test/tmp <image_id> /bin/bash`
+Run a docker image in a container: `docker run --name <container_name> --rm -it -v ${PWD}:/home/test/tmp <image_id> /bin/bash`
 
-Connect to the existing container: `docker exec -it <container_id> /bin/bash`
+Connect to the existing docker container: `docker exec -it <container_name> /bin/bash`
 
 Other Docker Commands
 ---
